@@ -1,0 +1,25 @@
+/* Cambiar fondo del player */
+.rhap_container {
+  background-color: #1e1e1e !important;
+}
+
+/* Cambiar color de los botones, progreso y texto */
+.rhap_main-controls,
+.rhap_progress-section,
+.rhap_time,
+.rhap_volume-controls,
+.rhap_play-pause-button,
+.rhap_repeat-button,
+.rhap_volume-button {
+  color: #f1f1f1;
+}
+
+.rhap_progress-filled,
+.rhap_volume-bar {
+  background-color: #9d4edd;
+}
+
+/* Cambiar color de la bolita del progreso */
+.rhap_progress-indicator, .rhap_volume-indicator {
+  background-color: #424242;
+}

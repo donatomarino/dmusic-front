@@ -2,7 +2,7 @@
 
 @theme {
   --color-header: #1e1e1e;
-  --color-logo: #044396;
-  --color-searchbar: #121212;
+  --color-night: #121212;
   --color-primary: #f1f1f1;
+  --color-hover-night: #212121;
 }
