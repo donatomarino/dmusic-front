@@ -12,17 +12,18 @@ export default {
     }
   },
 
-  postRequest: async ({
+  postRequest: async <T = any>({
     url,
     data = {},
     params = {},
-  }: RequestParams): Promise<AuthResponse | BaseApiResponse> => {
+  }: RequestParams): Promise<Requests<T>> => {
     try {
       const headers = { "Content-Type": "application/json" };
       const res: AxiosResponse = await instance.post(url, data, { params, headers });
-      return res.data;
+      return res.data as Requests<T>;
     } catch (e: any) {
-      return e.response.data || e;
+      // lanzar para que el caller lo capture y no mezclar tipos
+      throw (e.response?.data || e);
     }
   },
 

@@ -1,8 +1,10 @@
 import { FaPlay, FaHeart } from "react-icons/fa";
 import { useExplore } from "../hooks/useExplore";
+import { playSong } from "../hooks/playSong";
 
 const Explore = () => {
   const { songs } = useExplore();
+  const { handleSong } = playSong();
 
   return (
     <div className="bg-bg-cards h-full p-4 flex flex-col">
@@ -13,7 +15,7 @@ const Explore = () => {
           alt="Banner"
         />
         <h3 className="w-64 text-center md:text-left sm:text-m md:text-l lg:text-xl xl:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-blue-400 hover:animate-pulse">
-          RECOMENDACIONES DE LOS USUARIOS
+          EXPLORA TODA LA MÚSICA
         </h3>
       </div>
 
@@ -23,7 +25,7 @@ const Explore = () => {
         {songs
           .map((e, i) => (
             <div
-              key={i}
+              key={e.id}
               className="min-w-52 h-74 bg-night rounded-2xl shadow-md transition-transform duration-200 hover:scale-105 hover:shadow-lg hover:bg-hover-night flex flex-col items-center p-3"
             >
               <img
@@ -38,7 +40,10 @@ const Explore = () => {
                 </p>
 
                 <div className="flex justify-around mt-2">
-                  <button className="bg-blue-800 hover:bg-blue-700 flex justify-center items-center text-sm sm:text-base w-8 sm:w-9 h-8 sm:h-9 rounded-full border-0 text-white cursor-pointer">
+                  <button
+                    className="bg-blue-800 hover:bg-blue-700 flex justify-center items-center text-sm sm:text-base w-8 sm:w-9 h-8 sm:h-9 rounded-full border-0 text-white cursor-pointer"
+                    onClick={() => handleSong(e.id)}
+                  >
                     <FaPlay />
                   </button>
                   <button className="bg-red-900 hover:bg-red-800 flex justify-center items-center text-sm sm:text-base w-8 sm:w-9 h-8 sm:h-9 rounded-full border-0 text-white cursor-pointer">
@@ -50,7 +55,6 @@ const Explore = () => {
           ))}
       </div>
     </div>
-
   )
 }
 

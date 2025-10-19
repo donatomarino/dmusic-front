@@ -23,6 +23,7 @@ export const useLogin = () => {
 
       if (res.success && 'access_token' in res) {
         localStorage.setItem('token', res.access_token);
+        localStorage.setItem('initial_name', res.initial_name);
         navigate('/');
       } else {
         toast.error('Introduzca las credenciales en el placeholder');

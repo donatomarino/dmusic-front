@@ -7,7 +7,7 @@ const Content = () => {
     <div className="bg-bg-cards h-full p-5">
       <div className="text-center mb-8">
         <h3 className="pt-5 text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-blue-400 hover:animate-pulse">
-          Top Artistas
+          ARTISTAS DEL MOMENTO
         </h3>
         <p className="text-sm text-gray-400 mt-1">Los más escuchados esta semana</p>
         <div className="w-full h-1 bg-neutral-800 mx-auto mt-4 rounded-full"></div>

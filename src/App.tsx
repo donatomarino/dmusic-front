@@ -5,18 +5,24 @@ import { Login } from './modules/login/pages/Login';
 import { Register } from './modules/register/pages/Register';
 import { Bounce, ToastContainer } from 'react-toastify';
 import { ComponentProvider } from './context/ComponentContext';
+import { SearchProvider } from './context/SearchContext';
+import { SongProvider } from './context/SongContext';
 
 function App() {
   return (
     <div className="m-0 p-0 box-border">
       <ComponentProvider>
-        <Router>
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </Router>
+        <SearchProvider>
+          <SongProvider>
+            <Router>
+              <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/" element={<Home />} />
+              </Routes>
+            </Router>
+          </SongProvider>
+        </SearchProvider>
       </ComponentProvider>
       <ToastContainer
         position="bottom-right"

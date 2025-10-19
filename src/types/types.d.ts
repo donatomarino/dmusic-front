@@ -19,6 +19,7 @@ export interface BaseApiResponse {
   success: boolean;
   message: string;
   error?: boolean;
+  initial_name?:char;
 }
 
 export interface Requests<T> extends BaseApiResponse {
@@ -43,4 +44,44 @@ export interface DataSongs {
   url: string;
   image: string;
   artist: DataArtists;
+}
+
+export interface PlaySongRequest {
+  title: string;
+  url: string;
+}
+
+export interface SongType extends PlaySongRequest {
+  tags: string[];
+}
+
+export interface VerifiedAuth {
+  auth: boolean;
+}
+
+export interface ComponentContextType {
+  component: number;
+  toggleComponent: (newComponent: number) => void;
+}
+
+export interface ComponentProviderProps {
+  children: ReactNode;
+}
+
+export interface SearchContextType {
+  search: DataSongs[];
+  toggleSearch: (value: DataSongs[]) => void;
+}
+
+export interface SearchProviderProps {
+  children: ReactNode;
+}
+
+export interface SongContextType {
+  song: SongType[];
+  toggleSong: (value: SongType[]) => void;
+}
+
+export interface SongProviderProps {
+  children: ReactNode;
 }

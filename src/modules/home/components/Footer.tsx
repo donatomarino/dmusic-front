@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import "./Footer.css";
+import { SongContext } from "../../../context/SongContext";
 
 const Footer = () => {
+  const {song} = useContext(SongContext);
   const tracks = [
     {
       url: "https://audioplayer.madza.dev/Madza-Chords_of_Life.mp3",
@@ -35,12 +37,12 @@ const Footer = () => {
   return (
     <div className="col-span-4 flex flex-col gap-1 bg-header p-2">
       <div className="text-primary text-lg font-medium">
-        {tracks[currentTrackIndex].title}
+        {song[0].title}
       </div>
 
       <AudioPlayer
-        key={tracks[currentTrackIndex].url} // fuerza re-render al cambiar track
-        src={tracks[currentTrackIndex].url}
+        key={song[0]?.url} // fuerza re-render al cambiar track
+        src={song[0]?.url}
         showJumpControls={false}
         showSkipControls={true}
         autoPlay={false}
