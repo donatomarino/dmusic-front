@@ -1,14 +1,14 @@
 import instance from "../config/axios.config";
 import { AxiosResponse } from "axios";
-import { AuthResponse, BaseApiResponse, RequestParams } from "../types/types";
+import { AuthResponse, BaseApiResponse, RequestParams, Requests } from "../types/types";
 
 export default {
-  getRequest: async ({ url, params = {} }: RequestParams): Promise<BaseApiResponse> => {
+  getRequest: async <T = any>({ url, params = {} }: RequestParams): Promise<Requests<T>> => {
     try {
       const res: AxiosResponse = await instance.get(url, { params });
-      return res.data;
+      return res.data as Requests<T>;
     } catch (e: any) {
-      return e;
+      return (e as Requests<T>);
     }
   },
 
