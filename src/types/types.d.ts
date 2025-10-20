@@ -71,6 +71,8 @@ export interface ComponentProviderProps {
 export interface SearchContextType {
   search: DataSongs[];
   toggleSearch: (value: DataSongs[]) => void;
+  error: string;
+  setError: (msg: string) => void;
 }
 
 export interface SearchProviderProps {

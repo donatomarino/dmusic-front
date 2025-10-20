@@ -1,12 +1,14 @@
 import { FaPlay, FaHeart } from "react-icons/fa";
 import { VerifiedAuth } from "../../../types/types";
-import { useHeader } from "../hooks/useHeader";
 import { SearchContext } from "../../../context/SearchContext";
 import { useContext } from "react";
+import { addFavoriteSong } from "../hooks/addFavoriteSong";
+import { playSong } from "../hooks/playSong";
 
 const Search = ({ auth }: VerifiedAuth) => {
-  const { error } = useHeader();
-  const {search} = useContext(SearchContext);
+  const { search, error } = useContext(SearchContext);
+  const { handleSong } = playSong();
+  const { handleFavoriteSong } = addFavoriteSong();
 
   return (
     <div className="bg-bg-cards h-full p-4 flex flex-col">
@@ -27,7 +29,6 @@ const Search = ({ auth }: VerifiedAuth) => {
           return (
             <div
               className="min-w-52 h-74 bg-night rounded-2xl shadow-md transition-transform duration-200 hover:scale-105 hover:shadow-lg hover:bg-hover-night flex flex-col items-center p-3"
-              // onClick={() => handleSong(e.id)}
               key={e.id}
             >
               <img
@@ -38,31 +39,31 @@ const Search = ({ auth }: VerifiedAuth) => {
               <div className="p-2 w-full">
                 <p className='text-center text-white text-sm sm:text-base md:text-base lg:text-lg xl:text-lg '>{e.artist.full_name}</p>
                 <p className="text-center text-gray-400 text-sm sm:text-base md:text-base lg:text-lg xl:text-lg">{e.title}</p>
-
-                {auth && (
-                  <div className="flex justify-around mt-2">
-                    <button
-                      className="bg-blue-800 hover:bg-blue-700 flex justify-center items-center text-sm sm:text-base w-8 sm:w-9 h-8 sm:h-9 rounded-full border-0 text-white cursor-pointer"
-                    // onClick={() => handleSong(e.id)}
-                    >
-                      <FaPlay />
-                    </button>
-
-                    <button
-                      className="bg-red-900 hover:bg-red-800 flex justify-center items-center text-sm sm:text-base w-8 sm:w-9 h-8 sm:h-9 rounded-full border-0 text-white cursor-pointer"
-                    // onClick={() => handleFavorite(e.id)}
-                    >
-                      <FaHeart />
-                    </button>
-                  </div>
-                )}
+                <div className="flex justify-around mt-2">
+                  <button
+                    className="bg-blue-800 hover:bg-blue-700 flex justify-center items-center text-sm sm:text-base w-8 sm:w-9 h-8 sm:h-9 rounded-full border-0 text-white cursor-pointer"
+                    onClick={() => handleSong(e.id)}
+                  >
+                    <FaPlay />
+                  </button>
+                  <button
+                    className={`bg-red-900 flex justify-center items-center text-sm sm:text-base w-8 sm:w-9 h-8 sm:h-9 rounded-full border-0 text-white ${auth ? "hover:bg-red-800 cursor-pointer" : "opacity-60 cursor-not-allowed"}`}
+                    onClick={() => handleFavoriteSong(e.id)}
+                    disabled={!auth}
+                  >
+                    <FaHeart />
+                  </button>
+                </div>
               </div>
             </div>
           );
         })}
+        {error && (
+          <div className="text-center m-auto text-lg text-red-500 font-semibold">
+            {error}
+          </div>
+        )}
       </div>
-
-      {error && <div className='text-center text-lg text-red-600 font-bold'>{error}</div>}
     </div>
   );
 };

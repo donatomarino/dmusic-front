@@ -3,7 +3,7 @@ import { VerifiedAuth } from "../../../types/types";
 import { useHeader } from "../hooks/useHeader";
 
 const Header = ({ auth }: VerifiedAuth) => {
-  const { setSearch, handleSong, user, navigate } = useHeader();
+  const { setSearch, handleSong, user, navigate, search } = useHeader();
 
   return (
     <header className="bg-header col-span-full flex justify-between align-center px-5 py-7 shadow-md">
@@ -25,6 +25,7 @@ const Header = ({ auth }: VerifiedAuth) => {
           <input
             className="text-primary text-sm ml-2 w-full hover:text-white focus:outline-none focus:ring-0"
             name="searchbar"
+            value={search}
             placeholder="¿Qué quieres reproducir?"
             onChange={(e) => setSearch(e.target.value)}
           />

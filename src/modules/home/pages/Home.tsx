@@ -26,7 +26,7 @@ const Home = () => {
       />
       <main className="col-span-4">
         {component === 1 && <Content />}
-        {component === 2 && <Explore />}
+        {component === 2 && <Explore auth={auth}/>}
         {component === 3 && <Search auth={auth} />}
       </main>
       <Footer />

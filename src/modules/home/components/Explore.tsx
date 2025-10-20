@@ -1,10 +1,14 @@
 import { FaPlay, FaHeart } from "react-icons/fa";
 import { useExplore } from "../hooks/useExplore";
 import { playSong } from "../hooks/playSong";
+import { addFavoriteSong } from "../hooks/addFavoriteSong";
+import { VerifiedAuth } from "../../../types/types";
 
-const Explore = () => {
+const Explore = ({auth}: VerifiedAuth) => {
   const { songs } = useExplore();
   const { handleSong } = playSong();
+  const { handleFavoriteSong } = addFavoriteSong();
+  const user = localStorage.getItem('token');
 
   return (
     <div className="bg-bg-cards h-full p-4 flex flex-col">
@@ -21,12 +25,12 @@ const Explore = () => {
 
       <div className="w-full h-1 bg-neutral-800 rounded-full mb-4"></div>
 
-      <div className="w-full h-86 flex gap-5 overflow-x-scroll">
+      <div className="w-full sm:h-20 md:h-74 lg:h-86 flex gap-5 overflow-x-scroll">
         {songs
           .map((e, i) => (
             <div
               key={e.id}
-              className="min-w-52 h-74 bg-night rounded-2xl shadow-md transition-transform duration-200 hover:scale-105 hover:shadow-lg hover:bg-hover-night flex flex-col items-center p-3"
+              className="min-w-52 sm:h-20 md:h-64 lg:h-74 bg-night rounded-2xl shadow-md transition-transform duration-200 hover:scale-105 hover:shadow-lg hover:bg-hover-night flex flex-col items-center p-3"
             >
               <img
                 className="w-4/5 sm:w-11/12 md:w-full h-20 sm:h-40 md:h-44 lg:h-48 xl:h-40 rounded-full object-cover"
@@ -46,7 +50,11 @@ const Explore = () => {
                   >
                     <FaPlay />
                   </button>
-                  <button className="bg-red-900 hover:bg-red-800 flex justify-center items-center text-sm sm:text-base w-8 sm:w-9 h-8 sm:h-9 rounded-full border-0 text-white cursor-pointer">
+                  <button
+                    className={`bg-red-900 flex justify-center items-center text-sm sm:text-base w-8 sm:w-9 h-8 sm:h-9 rounded-full border-0 text-white ${auth ? "hover:bg-red-800 cursor-pointer" : "opacity-60 cursor-not-allowed"}`}
+                    onClick={() => handleFavoriteSong(e.id)}
+                    disabled={!auth}
+                  >
                     <FaHeart />
                   </button>
                 </div>

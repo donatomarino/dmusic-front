@@ -1,5 +1,5 @@
 import instanceAxios from '../../../api/APIUtils';
-import type { DataArtists, DataSongs, PlaySongRequest, Requests } from '../../../types/types';
+import type { BaseApiResponse, DataArtists, DataSongs, PlaySongRequest, Requests } from '../../../types/types';
 
 export const homeServices = {
   getArtists(): Promise<Requests<DataArtists[]>> {
@@ -18,5 +18,11 @@ export const homeServices = {
     return instanceAxios.postRequest({
       url: `/play-song/${id}`,
     })
+  },
+  addFavoriteSong(data: [{ song_id: string; user_id: string }]): Promise<BaseApiResponse> {
+    return instanceAxios.postRequest({
+      url: '/add-favoritesongs',
+      data: data
+    });
   }
 };
