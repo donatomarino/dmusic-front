@@ -19,7 +19,7 @@ export interface BaseApiResponse {
   success: boolean;
   message: string;
   error?: boolean;
-  initial_name?:char;
+  initial_name?: char;
 }
 
 export interface Requests<T> extends BaseApiResponse {
@@ -87,3 +87,4 @@ export interface SongContextType {
 export interface SongProviderProps {
   children: ReactNode;
 }
+

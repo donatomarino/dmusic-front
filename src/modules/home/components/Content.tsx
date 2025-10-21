@@ -25,19 +25,19 @@ const Content = () => {
 
       <div className="w-full h-1 bg-neutral-800 mx-auto mt-4 rounded-full"></div>
 
-      <div className="mt-10 flex flex-wrap justify-center gap-6">
-        {artists.slice(0, 4).map((e) => (
+      <div className="w-full flex gap-5 overflow-x-auto py-4 mt-10 scrollbar-thin scrollbar-thumb-pink-500 scrollbar-track-night">
+        {artists.map((e) => (
           <div
             key={e.id}
-            className="w-1/2 sm:w-1/3 md:w-1/5 bg-night rounded-2xl shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-hover-night"
+            className="flex flex-col items-center bg-night rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-hover-night min-w-[180px] max-w-[240px] mx-2 cursor-grab"
           >
             <img
-              className="w-4/5 rounded-full mx-auto p-5 min-h-48 object-cover"
+              className="w-32 h-24 sm:w-28 sm:h-32 md:w-36 md:h-40 rounded-full object-cover mt-4 shadow-md border-4 border-pink-500"
               src={e.avatar}
               alt={e.full_name}
             />
-            <div className="p-2">
-              <p className="text-center text-white font-semibold text-base m-0">
+            <div className="p-3 w-full flex flex-col items-center">
+              <p className="text-center text-white font-bold text-base sm:text-lg md:text-xl mb-1 truncate">
                 {e.full_name}
               </p>
             </div>

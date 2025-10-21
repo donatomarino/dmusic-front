@@ -8,21 +8,29 @@ export const homeServices = {
   getSongs(): Promise<Requests<DataSongs[]>> {
     return instanceAxios.getRequest({ url: '/get-songs' });
   },
-  searchSong(song: string): Promise<Requests<DataSongs[]>> {
+  searchSong(song_id: string): Promise<Requests<DataSongs[]>> {
     return instanceAxios.postRequest({
-      url: '/search-song',
-      data: { song }
+      url: `/search-song/${song_id}`,
     });
   },
-  playSong(id: string): Promise<Requests<PlaySongRequest[]>> {
+  playSong(song_id: string): Promise<Requests<PlaySongRequest[]>> {
     return instanceAxios.postRequest({
-      url: `/play-song/${id}`,
+      url: `/play-song/${song_id}`,
     })
   },
-  addFavoriteSong(data: [{ song_id: string; user_id: string }]): Promise<BaseApiResponse> {
+  addFavoriteSong(song_id: string): Promise<BaseApiResponse> {
     return instanceAxios.postRequest({
-      url: '/add-favoritesongs',
-      data: data
+      url: `/add-favorite-song/${song_id}`,
     });
+  },
+  getFavoriteSong(): Promise<Requests<DataSongs[]>> {
+    return instanceAxios.postRequest({
+      url: `/get-favorite-songs`,
+    })
+  },
+  deleteFavoriteSong(song_id: string): Promise<BaseApiResponse> {
+    return instanceAxios.deleteRequest({
+      url: `/delete-favorite-song/${song_id}`,
+    })
   }
 };

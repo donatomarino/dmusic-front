@@ -6,11 +6,11 @@ import { toast } from "react-toastify";
 
 export const playSong = () => {
   const {toggleSong} = useContext(SongContext);
-  const handleSong = async (id: string) => {
+  const handleSong = async (song_id: string) => {
   
       if (localStorage.getItem('token')) {
         try {
-          const res = await homeServices.playSong(id)
+          const res = await homeServices.playSong(song_id)
           console.log(res);
   
           if (res.success) {

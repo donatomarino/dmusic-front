@@ -45,7 +45,7 @@ const Explore = ({auth}: VerifiedAuth) => {
 
                 <div className="flex justify-around mt-2">
                   <button
-                    className="bg-blue-800 hover:bg-blue-700 flex justify-center items-center text-sm sm:text-base w-8 sm:w-9 h-8 sm:h-9 rounded-full border-0 text-white cursor-pointer"
+                    className="bg-blue-800 hover:bg-blue-700 flex justify-center items-center text-sm sm:text-base w-8 sm:w-9 h-8 sm:h-9 rounded-full border-0 text-white cursor-grab"
                     onClick={() => handleSong(e.id)}
                   >
                     <FaPlay />

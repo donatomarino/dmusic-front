@@ -39,7 +39,7 @@ const SideMenu = ({ auth }: VerifiedAuth) => {
           <li
             className="flex items-center py-3 px-4 cursor-pointer mb-2.5 
              hover:bg-purple-700/40 transition-colors duration-300"
-          // onClick={() => toggleComponent(5)}
+            onClick={() => toggleComponent(4)}
           >
             <FaMusic className="text-xl mr-3.5 text-primary" />
             <div className="text-l font-medium text-primary">Mi Biblioteca</div>
