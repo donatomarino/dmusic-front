@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { DataSongs } from "../../../types/types"
-import { homeServices } from "../services/HomeServices"
+import { homeServices } from "../services/homeServices"
 import { SongContext } from "../../../context/SongContext";
 
 export const useExplore = () => {
@@ -19,6 +19,6 @@ export const useExplore = () => {
     };
     fetchSongs();
   }, []);
-
+  
   return { songs }
 }

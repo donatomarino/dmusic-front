@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from "react";
-import { SongContext } from "../../../context/SongContext";
+import { useEffect, useState } from "react";
 import { DataSongs } from "../../../types/types";
-import { homeServices } from "../services/HomeServices";
+import { homeServices } from "../services/homeServices";
 import { toast } from "react-toastify";
 
 export const useLibrary = () => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { DataArtists } from "../../../types/types";
-import { homeServices } from "../services/HomeServices";
+import { homeServices } from "../services/homeServices";
 
 export const useContent = () => {
   const [artists, setArtists] = useState<Array<DataArtists>>([]);

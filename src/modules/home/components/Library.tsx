@@ -1,7 +1,7 @@
 import { FaPlay } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { useLibrary } from "../hooks/useLibrary";
-import { playSong } from "../hooks/playSong";
+import { playSong } from "../hooks/usePlaySong";
 
 export const Library = () => {
   const { library, deleteSong } = useLibrary();

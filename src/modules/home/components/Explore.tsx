@@ -1,14 +1,12 @@
 import { FaPlay, FaHeart } from "react-icons/fa";
 import { useExplore } from "../hooks/useExplore";
-import { playSong } from "../hooks/playSong";
-import { addFavoriteSong } from "../hooks/addFavoriteSong";
+import { playSong } from "../hooks/usePlaySong";
 import { VerifiedAuth } from "../../../types/types";
+import { musicServices } from "../services/musicServices";
 
-const Explore = ({auth}: VerifiedAuth) => {
+const Explore = ({ auth }: VerifiedAuth) => {
   const { songs } = useExplore();
   const { handleSong } = playSong();
-  const { handleFavoriteSong } = addFavoriteSong();
-  const user = localStorage.getItem('token');
 
   return (
     <div className="bg-bg-cards h-full p-4 flex flex-col">
@@ -38,9 +36,9 @@ const Explore = ({auth}: VerifiedAuth) => {
                 alt={e.title}
               />
               <div className="p-2 w-full">
-                <p className="text-center text-white text-sm sm:text-base md:text-base lg:text-lg xl:text-lg ">{e.artist.full_name}</p>
+                <p className="text-center text-white text-sm sm:text-base md:text-base lg:text-lg xl:text-lg ">{e.title}</p>
                 <p className="text-center text-gray-400 text-sm sm:text-base md:text-base lg:text-lg xl:text-lg ">
-                  {e.title}
+                  {e.artist.full_name}
                 </p>
 
                 <div className="flex justify-around mt-2">
@@ -52,7 +50,7 @@ const Explore = ({auth}: VerifiedAuth) => {
                   </button>
                   <button
                     className={`bg-red-900 flex justify-center items-center text-sm sm:text-base w-8 sm:w-9 h-8 sm:h-9 rounded-full border-0 text-white ${auth ? "hover:bg-red-800 cursor-pointer" : "opacity-60 cursor-not-allowed"}`}
-                    onClick={() => handleFavoriteSong(e.id)}
+                    onClick={() => musicServices.handleFavoriteSong(e.id)}
                     disabled={!auth}
                   >
                     <FaHeart />

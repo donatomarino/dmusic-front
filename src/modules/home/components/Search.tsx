@@ -2,13 +2,12 @@ import { FaPlay, FaHeart } from "react-icons/fa";
 import { VerifiedAuth } from "../../../types/types";
 import { SearchContext } from "../../../context/SearchContext";
 import { useContext } from "react";
-import { addFavoriteSong } from "../hooks/addFavoriteSong";
-import { playSong } from "../hooks/playSong";
+import { playSong } from "../hooks/usePlaySong";
+import { musicServices } from "../services/musicServices";
 
 const Search = ({ auth }: VerifiedAuth) => {
   const { search, error } = useContext(SearchContext);
   const { handleSong } = playSong();
-  const { handleFavoriteSong } = addFavoriteSong();
 
   return (
     <div className="bg-bg-cards h-full p-4 flex flex-col">
@@ -48,7 +47,7 @@ const Search = ({ auth }: VerifiedAuth) => {
                   </button>
                   <button
                     className={`bg-red-900 flex justify-center items-center text-sm sm:text-base w-8 sm:w-9 h-8 sm:h-9 rounded-full border-0 text-white ${auth ? "hover:bg-red-800 cursor-pointer" : "opacity-60 cursor-not-allowed"}`}
-                    onClick={() => handleFavoriteSong(e.id)}
+                    onClick={() => musicServices.handleFavoriteSong(e.id)}
                     disabled={!auth}
                   >
                     <FaHeart />
