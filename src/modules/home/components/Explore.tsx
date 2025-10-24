@@ -21,7 +21,7 @@ const Explore = ({ auth }: VerifiedAuth) => {
         </h3>
       </div>
 
-      <div className="w-full h-1 bg-neutral-800 rounded-full mb-4"></div>
+      <div className="w-full h-1 bg-neutral-800 rounded-full mb-4 flex-shrink-0"></div>
 
       <div className="w-full gap-5 
                   grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 

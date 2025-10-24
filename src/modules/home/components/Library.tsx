@@ -25,7 +25,7 @@ export const Library = () => {
         </div>
       </div>
 
-      <div className="w-full h-1 bg-neutral-800 rounded-full mb-4"></div>
+      <div className="w-full h-1 bg-neutral-800 rounded-full mb-4 flex-shrink-0"></div>
 
       <div className="w-full mx-auto">
         <ol className="flex flex-col gap-3 w-full">

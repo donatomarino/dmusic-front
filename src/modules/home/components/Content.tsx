@@ -25,9 +25,9 @@ const Content = () => {
         </div>
       </div>
 
-      <div className="w-full h-1 bg-neutral-800 mx-auto mt-4 rounded-full"></div>
-
-      <div className="w-full gap-5 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:flex lg:flex-row overflow-x-auto lg:overflow-x-visible mt-10 cursor-grab">
+      <div className="w-full h-1 bg-neutral-800 rounded-full mb-4 flex-shrink-0"></div>
+      
+      <div className="w-full gap-5 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:flex lg:flex-row overflow-x-auto lg:overflow-x-visible mt-3 cursor-grab">
         {artists.map((e) => (
           <div
             key={e.id}

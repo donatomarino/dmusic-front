@@ -8,7 +8,7 @@ const SideMenu = ({ auth }: VerifiedAuth) => {
   const navigate = useNavigate();
   const { toggleComponent } = useContext(ComponentContext)
   return (
-    <div className="hidden md:flex col-span-1 row-start-2 row-end-5 bg-night flex flex-col justify-between pt-4">
+    <div className="hidden md:flex col-span-1 row-start-2 row-end-5 bg-night flex-col justify-between pt-4">
       <ul className="flex flex-col gap-6">
         <li
           className="flex items-center py-3 px-4 cursor-pointer 
