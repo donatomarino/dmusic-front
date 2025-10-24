@@ -35,7 +35,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="col-span-4 flex flex-col gap-1 bg-header p-2">
+<div className="col-span-5 md:col-span-4 flex flex-col gap-1 bg-header p-2">
       <div className="text-primary text-lg font-medium">
         {song[0].title}
       </div>

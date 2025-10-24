@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { ComponentContext } from "../../../context/ComponentContext";
-import { homeServices } from "../services/HomeServices";
+import { homeServices } from "../services/homeServices";
 import { SearchContext } from "../../../context/SearchContext";
 import { useNavigate } from "react-router-dom";
 
 export const useHeader = () => {
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
   const [search, setSearch] = useState<string>('');
   const { setError, toggleSearch } = useContext(SearchContext);
   const { toggleComponent } = useContext(ComponentContext);
@@ -35,5 +36,5 @@ export const useHeader = () => {
       }
     }
   }
-  return { setSearch, handleSong, user, navigate, search }
+  return { setSearch, handleSong, user, navigate, search, menuOpen, setMenuOpen }; 
 }
