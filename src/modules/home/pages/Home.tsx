@@ -18,22 +18,19 @@ const Home = () => {
   }, [])
 
   return (
-    <div className="grid min-h-screen min-w-screen grid-cols-5 grid-rows-[auto_1fr_auto]">
-      <Header
-        auth={auth}
-      />
-      <SideMenu
-        auth={auth}
-      />
-      <main className="col-span-4">
-        {component === 1 && <Content />}
-        {component === 2 && <Explore auth={auth}/>}
-        {component === 3 && <Search auth={auth} />}
-        {component === 4 && <Library />}
-      </main>
-      <Footer />
-    </div>
-  )
+  <div className="grid h-screen w-screen grid-cols-5 grid-rows-[auto_1fr_auto] overflow-hidden">
+    <Header auth={auth}/>
+    <SideMenu auth={auth}/>
+    <main className="col-span-4 overflow-y-auto min-h-0 bg-bg-cards">
+      {component === 1 && <Content />}
+      {component === 2 && <Explore auth={auth} />}
+      {component === 3 && <Search auth={auth} />}
+      {component === 4 && <Library />}
+    </main>
+    <Footer />
+  </div>
+);
+
 }
 
 export default Home;

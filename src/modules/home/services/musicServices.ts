@@ -4,7 +4,7 @@ import { SongType } from '../../../types/types';
 import { toast } from 'react-toastify';
 
 export const musicServices = {
-  async handlePlaySong(song_id: string): Promise<SongType[]> {
+  async handlePlaySong(song_id: string, url: string): Promise<SongType[]> {
     if (!localStorage.getItem('token')) {
       toast.error('Debes iniciar sesión para poder reproducir música');
       throw new Error('Token no encontrado');
@@ -12,7 +12,7 @@ export const musicServices = {
 
     try {
       const res: Requests<PlaySongRequest[]> = await instanceAxios.postRequest({
-        url: `/play-song/${song_id}`,
+        url: `/${url}/${song_id}`,
       });
 
       const formattedTracks: SongType[] = res.data.map((e: PlaySongRequest) => ({

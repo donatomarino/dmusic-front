@@ -15,9 +15,14 @@ export const Library = () => {
       className="w-80 h-56 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl sm:h-32 md:h-40 lg:h-48 xl:h-48 object-cover rounded-xl"
       alt="Page Image"
     />
-    <h3 className="w-64 text-center md:text-left sm:text-m md:text-l lg:text-xl xl:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-blue-400 hover:animate-pulse">
-      MI BIBLIOTECA
-    </h3>
+     <div>
+          <div className="flex flex-col">
+            <h3 className="w-3xl text-center md:text-left sm:text-m md:text-l lg:text-xl xl:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-blue-400 hover:animate-pulse">
+              MI BIBLIOTECA
+            </h3>
+            <p className="text-m text-gray-400 mt-1">Organiza tu sonido personal</p>
+          </div>
+        </div>
   </div>
 
   <div className="w-full h-1 bg-neutral-800 rounded-full mb-4"></div>
@@ -52,7 +57,7 @@ export const Library = () => {
           <div className="col-span-2 flex items-center justify-end gap-3">
             <button
               className="bg-blue-700 hover:bg-blue-600 rounded-full p-2 transition-colors cursor-grab"
-              onClick={() => handleSong(e.id)}
+              onClick={() => handleSong(e.id, 'play-library')}
               title="Reproducir"
             >
               <FaPlay size={18} color="white" />
