@@ -40,9 +40,30 @@ const Header = ({ auth }: VerifiedAuth) => {
         </form>
       </div>
 
-      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tr from-purple-500 via-pink-500 to-blue-400 text-white font-bold text-sm sm:text-base cursor-pointer hover:scale-110 transition-transform duration-200 overflow-hidden">
-        {auth ? user?.charAt(0).toUpperCase() : null}
-      </div>
+      {auth ? (
+        <div className="flex flex-col sm:flex-row items-center gap-2 md:flex-row md:gap-3.5">
+          <div className="relative flex items-center justify-center w-10 h-10 sm:w-10 sm:h-10 md:w-10 md:h-10 rounded-full bg-gradient-to-tr from-purple-500 via-pink-500 to-blue-400 text-white font-bold text-sm cursor-pointer hover:scale-110 transition-transform duration-200">
+            {user}
+          </div>
+        </div>
+      ) : (
+        <div className="flex flex-col sm:flex-row items-center gap-2 md:flex-row md:gap-3.5">
+          <button
+            type="button"
+            onClick={() => navigate('/register')}
+            className="px-2 py-2 w-24 sm:w-24 md:w-24 rounded-3xl text-primary text-sm font-medium cursor-pointer transition-colors duration-300 ease-in-out bg-gradient-to-tr from-purple-500 via-pink-500 to-blue-400 hover:brightness-110"
+          >
+            Registrate
+          </button>
+          <button
+            type="button"
+            onClick={() => navigate('/login')}
+            className="px-2 py-2 w-30 sm:w-30 md:w-30 rounded-3xl bg-night border-2 border-purple-500 text-white text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out hover:bg-header hover:border-pink-500"
+          >
+            Iniciar sesión
+          </button>
+        </div>
+      )}
 
       {menuOpen && <SideMenuMobile auth={auth} />}
     </header>

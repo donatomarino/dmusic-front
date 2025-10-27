@@ -10,6 +10,12 @@ export interface LoginPayload {
   showPassword?: boolean;
 }
 
+export interface FailedLoginPayload {
+  success: boolean;
+  message: string;
+  error: boolean;
+}
+
 export interface RegisterPayload extends LoginPayload {
   confirm_pass: string;
   full_name: string;
@@ -82,6 +88,10 @@ export interface SearchProviderProps {
 export interface SongContextType {
   song: SongType[];
   toggleSong: (value: SongType[]) => void;
+  currentIndex: number;
+  playNext: () => void;
+  playPrev: () => void;
+  playerRef: React.RefObject<AudioPlayer>;
 }
 
 export interface SongProviderProps {

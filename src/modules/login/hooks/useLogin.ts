@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { authService } from "../services/authService";
 import { useNavigate } from "react-router-dom";
-import { AuthResponse, BaseApiResponse, LoginPayload } from "../../../types/types";
+import { AuthResponse, BaseApiResponse, FailedLoginPayload, LoginPayload } from "../../../types/types";
 import { toast } from "react-toastify";
 
 export const useLogin = () => {
   useEffect(() => {
     localStorage.removeItem('token');
+    window.dispatchEvent(new Event('tokenRemoved'));
   }, []);
   const navigate = useNavigate();
   const [formData, setFormData] = useState<LoginPayload>({
@@ -25,14 +26,10 @@ export const useLogin = () => {
         localStorage.setItem('token', res.access_token);
         localStorage.setItem('initial_name', res.initial_name);
         navigate('/');
-      } else {
-        toast.error('Introduzca las credenciales en el placeholder');
       }
-
-    } catch (e: unknown) {
+    } catch (e: FailedLoginPayload | any) {
+      e.error && toast.error(e.message);
       console.error(e);
-    } finally {
-      // toggleLoading();
     }
   }
 

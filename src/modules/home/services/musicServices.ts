@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import instanceAxios from '../../../api/APIUtils';
 import type { Requests, PlaySongRequest, BaseApiResponse } from '../../../types/types';
 import { SongType } from '../../../types/types';
@@ -16,7 +17,7 @@ export const musicServices = {
       });
 
       const formattedTracks: SongType[] = res.data.map((e: PlaySongRequest) => ({
-        url: `http://localhost:5001/${e.url}`,
+        url: `http://127.0.0.1:8000/${e.url}`,
         title: `${e.title}`,
         tags: ["music"]
       }));

@@ -3,9 +3,9 @@ import axios, {
   AxiosResponse,
   AxiosError
 } from "axios";
-// import { ENV } from "./constants/constants";
+import { ENV } from "./constants/constants";
 
-const baseURL = 'http://127.0.0.1:8000/api/dmusic/';
+const baseURL = ENV.VITE_API_URL;
 
 const instance = axios.create({
   baseURL,
