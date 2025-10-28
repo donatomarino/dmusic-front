@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
 import instanceAxios from '../../../api/APIUtils';
 import type { Requests, PlaySongRequest, BaseApiResponse } from '../../../types/types';
 import { SongType } from '../../../types/types';
 import { toast } from 'react-toastify';
+
+const API_URL_BACK = import.meta.env.VITE_API_URL_BACK;
 
 export const musicServices = {
   async handlePlaySong(song_id: string, url: string): Promise<SongType[]> {
@@ -17,7 +18,7 @@ export const musicServices = {
       });
 
       const formattedTracks: SongType[] = res.data.map((e: PlaySongRequest) => ({
-        url: `http://127.0.0.1:8000/${e.url}`,
+        url: `${API_URL_BACK}/${e.url}`,
         title: `${e.title}`,
         tags: ["music"]
       }));

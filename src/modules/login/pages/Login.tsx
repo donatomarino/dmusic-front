@@ -30,7 +30,7 @@ export const Login = () => {
               label={'Correo electrónico'}
               type={'email'}
               id={'email'}
-              placeholder={'donato_8@icloud.com'}
+              placeholder={'Introduzca su correo electrónico'}
               name={'email'}
               value={formData.email}
               onChange={handleChange}
@@ -42,7 +42,7 @@ export const Login = () => {
               label={'Contraseña'}
               type={'password'}
               id={'password'}
-              placeholder={'prueba1234'}
+              placeholder={'Introduzca su contraseña'}
               name={'password'}
               value={formData.password}
               onChange={handleChange}
