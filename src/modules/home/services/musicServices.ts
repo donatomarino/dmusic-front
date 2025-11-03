@@ -3,7 +3,7 @@ import type { Requests, PlaySongRequest, BaseApiResponse } from '../../../types/
 import { SongType } from '../../../types/types';
 import { toast } from 'react-toastify';
 
-const API_URL_BACK = import.meta.env.VITE_API_URL_BACK;
+const API_URL_BACK_DEV = import.meta.env.VITE_API_URL_BACK_DEV;
 
 export const musicServices = {
   async handlePlaySong(song_id: string, url: string): Promise<SongType[]> {
@@ -18,7 +18,7 @@ export const musicServices = {
       });
 
       const formattedTracks: SongType[] = res.data.map((e: PlaySongRequest) => ({
-        url: `${API_URL_BACK}/${e.url}`,
+        url: `${API_URL_BACK_DEV}/${e.url}`,
         title: `${e.title}`,
         tags: ["music"]
       }));
