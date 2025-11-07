@@ -1,7 +1,4 @@
-interface HeaderProps {
-  onClick?: () => void;
-  description: string;
-}
+import { HeaderProps } from "../../../types/types";
 
 export const Header = ({ onClick, description }: HeaderProps) => {
   return (

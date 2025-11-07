@@ -16,6 +16,23 @@ export interface FailedLoginPayload {
   error: boolean;
 }
 
+export interface HeaderProps {
+  onClick?: () => void;
+  description: string;
+}
+
+export interface FormFieldProps {
+  id: string;
+  label: string;
+  type: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+  minLength?: number;
+  name: string;
+  disabled?: boolean;
+}
+
 export interface RegisterPayload extends LoginPayload {
   confirm_pass: string;
   full_name: string;

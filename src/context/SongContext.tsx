@@ -1,4 +1,4 @@
-import React, { createContext, useRef, useState, useCallback, useEffect } from "react";
+import React, { createContext, useRef, useState, useCallback } from "react";
 import { SongContextType, SongProviderProps, SongType } from "../types/types";
 import AudioPlayer from "react-h5-audio-player";
 

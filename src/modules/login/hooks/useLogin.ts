@@ -19,7 +19,6 @@ export const useLogin = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     try {
-      // toggleLoading();
       const res: AuthResponse | BaseApiResponse = await authService.login(formData);
 
       if (res.success && 'access_token' in res) {

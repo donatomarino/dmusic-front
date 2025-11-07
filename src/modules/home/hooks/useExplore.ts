@@ -1,11 +1,9 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { DataSongs } from "../../../types/types"
 import { homeServices } from "../services/homeServices"
-import { SongContext } from "../../../context/SongContext";
 
 export const useExplore = () => {
   const [songs, setSongs] = useState<Array<DataSongs>>([]);
-  const { toggleSong } = useContext(SongContext);
 
   useEffect(() => {
     const fetchSongs = async () => {

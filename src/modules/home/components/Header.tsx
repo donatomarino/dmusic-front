@@ -1,4 +1,4 @@
-import { FaSearch, FaBars, FaTimes, FaHome, FaMusic } from "react-icons/fa";
+import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { VerifiedAuth } from "../../../types/types";
 import { useHeader } from "../hooks/useHeader";
 import SideMenuMobile from "./SideMenuMobile";

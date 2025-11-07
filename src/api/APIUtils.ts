@@ -1,18 +1,18 @@
 import instance from "../config/axios.config";
 import { AxiosResponse } from "axios";
-import { AuthResponse, BaseApiResponse, RequestParams, Requests } from "../types/types";
+import { BaseApiResponse, RequestParams, Requests } from "../types/types";
 
 export default {
-  getRequest: async <T = any>({ url, params = {} }: RequestParams): Promise<Requests<T>> => {
+  getRequest: async <T>({ url, params = {} }: RequestParams): Promise<Requests<T>> => {
     try {
       const res: AxiosResponse = await instance.get(url, { params });
-      return res.data as Requests<T>;
+      return res.data;
     } catch (e: any) {
-      return (e as Requests<T>);
+      return (e);
     }
   },
 
-  postRequest: async <T = any>({
+  postRequest: async <T>({
     url,
     data = {},
     params = {},
@@ -20,7 +20,7 @@ export default {
     try {
       const headers = { "Content-Type": "application/json" };
       const res: AxiosResponse = await instance.post(url, data, { params, headers });
-      return res.data as Requests<T>;
+      return res.data;
     } catch (e: any) {
       throw (e.response?.data || e);
     }

@@ -1,17 +1,6 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-
-interface FormFieldProps {
-  id: string;
-  label: string;
-  type: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  placeholder?: string;
-  minLength?: number;
-  name: string;
-  disabled?: boolean;
-}
+import { FormFieldProps } from "../../../types/types";
 
 export default function FormField({ id, label, type, value, onChange, placeholder, minLength, name, disabled }: FormFieldProps) {
   const [showPassword, setShowPassword] = useState(false);
