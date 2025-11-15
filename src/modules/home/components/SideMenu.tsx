@@ -16,7 +16,7 @@ const SideMenu = ({ auth }: VerifiedAuth) => {
           onClick={() => toggleComponent(1)}
         >
           <FaHome className="text-xl mr-3.5 text-primary" />
-          <div className="text-l font-medium text-primary">Inicio</div>
+          <div className="text-l font-medium text-primary">Home</div>
         </li>
         <li
           className="flex items-center py-3 px-4 cursor-pointer
