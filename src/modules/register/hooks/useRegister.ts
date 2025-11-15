@@ -40,9 +40,13 @@ export const useRegister = () => {
         toast.error(res.message);
       }
 
-    } catch (error: unknown) {
-      console.error("Error en registro:", error);
-      toast.error("Ha habido un problema en el registro.");
+    } catch (error: any) {
+      if (error.errors && typeof error.errors === 'object') {
+        const errorMessage = Object.values(error.errors)[0] as string[];
+        toast.error(errorMessage[0]);
+      } else {
+        toast.error("Error durante el registro");
+      }
     }
   };
 
