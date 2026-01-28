@@ -10,8 +10,7 @@ export const homeServices = {
   },
   searchSong(song_name: string): Promise<Requests<DataSongs[]>> {
     return instanceAxios.postRequest({
-      url: `/search-song`,
-      data: { song_name }
+      url: `/search-song/${song_name}`,
     });
   },
   playSong(song_id: string): Promise<Requests<PlaySongRequest[]>> {
